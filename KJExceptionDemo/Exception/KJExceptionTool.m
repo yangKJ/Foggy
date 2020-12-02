@@ -13,12 +13,12 @@
 
 @implementation KJExceptionTool
 static kExceptionBlock _exceptionblock = nil;
-+ (kExceptionBlock)exceptionblock{ return _exceptionblock;}
++ (kExceptionBlock)exceptionblock{return _exceptionblock;}
 + (void)setExceptionblock:(kExceptionBlock)exceptionblock{
     _exceptionblock = exceptionblock;
 }
-/// 开启全部方法交换
-+ (void)kj_openAllExchangeMethod{
+/// 异常回调处理
++ (void)kj_crashBlock:(kExceptionBlock)block{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [NSArray kj_openExchangeMethod];
@@ -27,26 +27,21 @@ static kExceptionBlock _exceptionblock = nil;
         [NSMutableDictionary kj_openExchangeMethod];
         [NSMutableString kj_openExchangeMethod];
     });
-}
-/// 异常回调处理
-+ (void)kj_crashBlock:(kExceptionBlock)block{
     self.exceptionblock = block;
 }
+
 /// 异常获取
 + (void)kj_crashDealWithException:(NSException*)exception CrashTitle:(NSString*)title{
     NSString *crashMessage = [self kj_analysisCallStackSymbols:[NSThread callStackSymbols]];
     if (crashMessage == nil) crashMessage = @"崩溃方法定位失败,请查看函数调用栈来排查错误原因";
-    NSString *crashName = exception.name;
     NSString *crashReason = exception.reason;
     crashReason = [crashReason stringByReplacingOccurrencesOfString:@"avoidCrash" withString:@""];
-    NSLog(@"========== crash 日志 ==========\ncrashName: %@\ncrashTitle: %@\ncrashReason: %@\ncrashMessage: %@",crashName,title,crashReason,crashMessage);
+    NSLog(@"\n************ crash 日志 ************\n标题：%@\n异常原因：%@\n异常地址：%@",title,crashReason,crashMessage);
     if (self.exceptionblock) {
-        NSDictionary *dict = @{@"crashName":crashName,
+        NSDictionary *dict = @{@"crashTitle":title,
                                @"crashReason":crashReason,
-                               @"crashTitle":title,
                                @"crashMessage":crashMessage,
-                               @"exception":exception,
-                               @"callStackSymbols":[NSThread callStackSymbols]
+                               @"exception":exception
         };
         __weak __typeof(&*self) weakself = self;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -57,7 +52,7 @@ static kExceptionBlock _exceptionblock = nil;
 /// 解析异常消息
 + (NSString*)kj_analysisCallStackSymbols:(NSArray<NSString*>*)callStackSymbols{
     __block NSString *msg = nil;
-    NSString *pattern = @"[-\\+]\\[.+\\]";/// 匹配出来的格式为 +[类名 方法名] 或者 -[类名 方法名]
+    NSString *pattern = @"[-\\+]\\[.+\\]";// 匹配出来的格式为 +[类名 方法名] 或者 -[类名 方法名]
     NSRegularExpression *regularExp = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
     for (NSInteger i = 2; i < callStackSymbols.count; i++) {
         NSString *matchesString = callStackSymbols[i];

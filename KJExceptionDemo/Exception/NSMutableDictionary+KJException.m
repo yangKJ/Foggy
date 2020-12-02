@@ -20,9 +20,13 @@
     @try {
         [self kj_setObject:object forKey:key];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
-        if (key == nil || object == nil) {
-            string = [string stringByAppendingString:[NSString stringWithFormat:@"字典赋值存在空 key:%@, val:%@",key,object]];
+        NSString *string = @"🍉🍉 crash：字典赋值";
+        if (key == nil && object  == nil) {
+            string = [string stringByAppendingFormat:@"键值均为空，"];
+        }else if (key == nil) {
+            string = [string stringByAppendingFormat:@"值为(%@)的key为空，",object];
+        }else if (object  == nil) {
+            string = [string stringByAppendingFormat:@"键为(%@)的value为空，",key];
         }
         [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
     }@finally {
@@ -33,9 +37,13 @@
     @try {
         [self kj_setValue:object forKey:key];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
-        if (key == nil || object == nil) {
-            string = [string stringByAppendingString:[NSString stringWithFormat:@"字典赋值存在空 key:%@, val:%@",key,object]];
+        NSString *string = @"🍉🍉 crash：字典赋值";
+        if (key == nil && object  == nil) {
+            string = [string stringByAppendingFormat:@"键值均为空，"];
+        }else if (key == nil) {
+            string = [string stringByAppendingFormat:@"值为(%@)的key为空，",object];
+        }else if (object  == nil) {
+            string = [string stringByAppendingFormat:@"键为(%@)的value为空，",key];
         }
         [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
     }@finally {
@@ -46,9 +54,9 @@
     @try {
         [self kj_removeObjectForKey:key];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (key == nil) {
-            string = [string stringByAppendingString:[NSString stringWithFormat:@"字典移除键为空 key:%@",key]];
+            string = [string stringByAppendingString:@"字典移除键为空"];
         }
         [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
     }@finally {

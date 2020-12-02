@@ -21,7 +21,7 @@
     @try {
         [self kj_appendString:appendString];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (string == nil) {
             string = [string stringByAppendingString:@"追加字符串为空"];
         }
@@ -35,7 +35,7 @@
     @try {
         temp = [self kj_substringFromIndex:from];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (from > self.length) {
             string = [string stringByAppendingString:@"字符串长度不够"];
         }
@@ -50,7 +50,7 @@
     @try {
         temp = [self kj_substringToIndex:to];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (to > self.length) {
             string = [string stringByAppendingString:@"字符串长度不够"];
         }
@@ -65,7 +65,7 @@
     @try {
         temp = [self kj_substringWithRange:range];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (range.location > self.length || range.length > self.length || (range.location + range.length) > self.length) {
             string = [string stringByAppendingString:@"字符串长度不够"];
         }

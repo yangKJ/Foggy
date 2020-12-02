@@ -23,13 +23,19 @@
     @try {
         instance = [self kj_initWithObjects:objects forKeys:keys count:cnt];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling remove nil key-values and instance a dictionary: 字典赋值存在空\n";
+        NSString *string = @"🍉🍉 crash：字典";
         id _Nonnull __unsafe_unretained safeObjects[cnt],safeKeys[cnt];
         int index = 0;
         for (int i = 0; i < cnt; i++) {
             id _Nonnull __unsafe_unretained key = keys[i],obj = objects[i];
-            if (key == nil || obj  == nil) {
-                string = [string stringByAppendingString:[NSString stringWithFormat:@"key:%@, val:%@\n",key,obj]];
+            if (key == nil && obj  == nil) {
+                string = [string stringByAppendingFormat:@"第(%d)条数据键值均为空剔除，",i];
+                continue;
+            }else if (key == nil) {
+                string = [string stringByAppendingFormat:@"值为(%@)的key为空，",obj];
+                continue;
+            }else if (obj  == nil) {
+                string = [string stringByAppendingFormat:@"键为(%@)的value为空，",key];
                 continue;
             }
             safeKeys[index] = key;
@@ -47,13 +53,19 @@
     @try {
         instance = [self kj_dictionaryWithObjects:objects forKeys:keys count:cnt];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling remove nil key-values and instance a dictionary: 字典赋值存在空\n";
+        NSString *string = @"🍉🍉 crash：字典";
         id _Nonnull __unsafe_unretained safeObjects[cnt],safeKeys[cnt];
         int index = 0;
         for (int i = 0; i < cnt; i++) {
             id _Nonnull __unsafe_unretained key = keys[i],obj = objects[i];
-            if (key == nil || obj  == nil) {
-                string = [string stringByAppendingString:[NSString stringWithFormat:@"key:%@, val:%@\n",key,obj]];
+            if (key == nil && obj  == nil) {
+                string = [string stringByAppendingFormat:@"第(%d)条数据键值均为空剔除，",i];
+                continue;
+            }else if (key == nil) {
+                string = [string stringByAppendingFormat:@"值为(%@)的key为空，",obj];
+                continue;
+            }else if (obj  == nil) {
+                string = [string stringByAppendingFormat:@"键为(%@)的value为空，",key];
                 continue;
             }
             safeKeys[index] = key;

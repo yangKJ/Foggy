@@ -40,6 +40,20 @@ NS_INLINE void kExceptionMethodSwizzling(Class clazz, SEL original, SEL swizzled
     }
 }
 
+/// 简单崩溃日志收集，AppDelegate里注册函数 kUncaughtException
+NS_INLINE void kUncaughtExceptionHandler(NSException *exception);
+NS_INLINE void kUncaughtException(void){
+    NSSetUncaughtExceptionHandler(&kUncaughtExceptionHandler);
+}
+NS_INLINE void kUncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"**************** 崩溃日志收集器 ****************");
+    NSLog(@"%@",exception);
+    NSLog(@"%@",exception.callStackReturnAddresses);
+    NSLog(@"%@",exception.callStackSymbols);
+    NSLog(@"*********************************************");
+}
+
+
 #pragma clang diagnostic pop
 NS_ASSUME_NONNULL_END
 #endif

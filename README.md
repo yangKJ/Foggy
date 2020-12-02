@@ -1,16 +1,28 @@
 # KJExceptionDemo
 
-#### **分离出来的异常处理库，包含基本的防崩溃处理（数组，字典，字符串）**
+# [iOS NSException崩溃处理](https://juejin.cn/post/6893021994628055047)
 
-##### 添加本地tag  `git tag -a 1.0.0 -m 'release 1.0.0'`
-##### 将tag传到远程   `git push origin --tags`
-##### 不需要联网验证 `pod lib lint --verbose --allow-warnings`
-##### 上传到Cocoapods `pod trunk push KJExceptionDemo.podspec --allow-warnings`
+### **分离出来的异常处理库，包含基本的防崩溃处理（数组，字典，字符串）**
 
-#### <a id="作者信息"></a>作者信息
-> Github地址：https://github.com/yangKJ  
-> 简书地址：https://www.jianshu.com/u/c84c00476ab6  
-> 博客地址：https://blog.csdn.net/qq_34534179  
+- 添加本地tag `git tag -a 1.0.0 -m 'release 1.0.0'`
+- 将tag传到远程   `git push origin --tags`
+- 不需要联网验证 `pod lib lint --verbose --allow-warnings`
+- 上传到Cocoapods `pod trunk push KJExceptionDemo.podspec --allow-warnings`
+
+#### <a id="Cocoapods安装"></a>Cocoapods安装
+```
+pod 'KJExceptionDemo'
+```
+
+#### <a id="更新日志"></a>更新日志
+```
+#### Add 1.0.1
+1. 重新整理，完善提示内容
+
+#### Add 1.0.0
+1. 从KJExtensionHandler当中分离出来
+2. 异常处理，请使用 pod 'KJExceptionDemo'
+```
 
 #### <a id="作者其他库"></a>作者其他Pod库
 ```
@@ -28,6 +40,7 @@ pod 'KJEmitterView/Control' # 自定义控件
 图片压缩加工处理、滤镜渲染、泛洪算法、识别网址超链接等等
 pod 'KJExtensionHandler'
 pod 'KJExtensionHandler/Foundation'
+pod 'KJExtensionHandler/Language' # 多语言模块
 
 基类库 - 封装整理常用，采用链式处理，提炼独立工具
 pod 'KJBaseHandler'
@@ -61,18 +74,6 @@ pod 'KJExceptionDemo'
 */
 ```
 
-#### <a id="Cocoapods安装"></a>Cocoapods安装
-```
-pod 'KJExceptionDemo'
-```
-
-#### <a id="更新日志"></a>更新日志
-```
-### 版本更新
-#### Add 1.0.0
-1. 从KJExtensionHandler当中分离出来
-2. 异常处理，请使用 pod 'KJExceptionDemo'
-```
 #### <a id="打赏作者"></a>打赏作者
 * 如果你觉得有帮助，还请为我Star
 * 如果在使用过程中遇到什么问题，希望你能Issues，我会及时修复

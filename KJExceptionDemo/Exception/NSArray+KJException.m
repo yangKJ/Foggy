@@ -24,7 +24,7 @@
     @try {
         temp = [self kj_objectAtIndex:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (self.count == 0) {
             string = [string stringByAppendingString:@"数组个数为零"];
         }else if (self.count <= index) {
@@ -41,7 +41,7 @@
     @try {
         temp = [self kj_objectAtIndexedSubscript:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (self.count == 0) {
             string = [string stringByAppendingString:@"数组个数为零"];
         }else if (self.count <= index) {

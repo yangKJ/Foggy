@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = "KJExceptionDemo"
-  s.version  = "1.0.0"
+  s.version  = "1.0.1"
   s.summary  = "Exception handling tool"
   s.homepage = "https://github.com/yangKJ/KJExceptionDemo"
   s.license  = "MIT"

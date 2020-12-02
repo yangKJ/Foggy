@@ -30,7 +30,7 @@
     @try {
         [self kj_removeObjectAtIndex:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (self.count <= 0) {
             string = [string stringByAppendingString:@"数组个数为零"];
         }else if (self.count <= index) {
@@ -46,9 +46,9 @@
     @try {
         [self kj_insertObject:anObject atIndex:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (anObject == nil) {
-            string = [string stringByAppendingString:@"数组插入数据为空\t"];
+            string = [string stringByAppendingString:@"数组插入数据为空"];
         }else {        
             if (self.count <= 0) {
                 string = [string stringByAppendingString:@"数组个数为零"];
@@ -65,10 +65,10 @@
     @try {
         [self kj_setObject:anObject atIndexedSubscript:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling ignore this operation to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (anObject == nil) {
-            string = [string stringByAppendingString:@"数组更改数据为空\t"];
-        }else {
+            string = [string stringByAppendingString:@"数组更改数据为空"];
+        }else{
             if (self.count <= 0) {
                 string = [string stringByAppendingString:@"数组个数为零"];
             }else if (self.count <= index) {
@@ -86,7 +86,7 @@
     @try {
         temp = [self kj_objectAtIndex:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (self.count == 0) {
             string = [string stringByAppendingString:@"数组个数为零"];
         }else if (self.count <= index) {
@@ -103,7 +103,7 @@
     @try {
         temp = [self kj_objectAtIndexedSubscript:index];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling return nil to avoid crash: ";
+        NSString *string = @"🍉🍉 crash：";
         if (self.count == 0) {
             string = [string stringByAppendingString:@"数组个数为零"];
         }else if (self.count <= index) {
@@ -120,7 +120,7 @@
     @try {
         instance = [self kj_initWithObjects:objects count:cnt];
     }@catch (NSException *exception) {
-        NSString *string = @"Exception handling remove nil object and instance a array.";
+        NSString *string = @"🍉🍉 crash：添加的数据中有空对象";
         [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
         NSInteger newIndex = 0;
         id _Nonnull __unsafe_unretained newObjects[cnt];
