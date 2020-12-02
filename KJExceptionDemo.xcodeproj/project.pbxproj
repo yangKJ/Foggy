@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AD16BE47A8770AF114A54BB /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C1E3F3DEED72047F27B51 /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */; };
+		684F9F1A257741BA005F1533 /* KJExceptionDemo.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 684F9F19257741BA005F1533 /* KJExceptionDemo.podspec */; };
+		684F9F1F257741C2005F1533 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 684F9F1E257741C2005F1533 /* README.md */; };
 		685AD6012577274D00960EE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6002577274D00960EE6 /* AppDelegate.m */; };
 		685AD6042577274D00960EE6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6032577274D00960EE6 /* SceneDelegate.m */; };
 		685AD6072577274D00960EE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6062577274D00960EE6 /* ViewController.m */; };
@@ -17,6 +20,14 @@
 		685AD6152577274E00960EE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6142577274E00960EE6 /* main.m */; };
 		685AD61F2577274E00960EE6 /* KJExceptionDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD61E2577274E00960EE6 /* KJExceptionDemoTests.m */; };
 		685AD62A2577274E00960EE6 /* KJExceptionDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6292577274E00960EE6 /* KJExceptionDemoUITests.m */; };
+		68AA5C7A257732830099EB48 /* NSMutableString+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */; };
+		68AA5C7B257732830099EB48 /* NSMutableDictionary+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */; };
+		68AA5C7C257732830099EB48 /* NSArray+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C72257732830099EB48 /* NSArray+KJException.m */; };
+		68AA5C7D257732830099EB48 /* KJExceptionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C75257732830099EB48 /* KJExceptionTool.m */; };
+		68AA5C7E257732830099EB48 /* NSDictionary+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C76257732830099EB48 /* NSDictionary+KJException.m */; };
+		68AA5C7F257732830099EB48 /* NSMutableArray+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */; };
+		7E2512DE920A237A55DA7756 /* Pods_KJExceptionDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */; };
+		EE220845BD3C869D39D873B6 /* Pods_KJExceptionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E8D9D16C29E91090D777C5 /* Pods_KJExceptionDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A93A3412B5F9E4E093A8B2D /* Pods-KJExceptionDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemoTests/Pods-KJExceptionDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4518F1E75855FEF83C0FB32E /* Pods-KJExceptionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemo.release.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemo/Pods-KJExceptionDemo.release.xcconfig"; sourceTree = "<group>"; };
+		684F9F19257741BA005F1533 /* KJExceptionDemo.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = KJExceptionDemo.podspec; sourceTree = SOURCE_ROOT; };
+		684F9F1E257741C2005F1533 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		685AD5FC2577274D00960EE6 /* KJExceptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJExceptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685AD5FF2577274D00960EE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		685AD6002577274D00960EE6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,6 +71,27 @@
 		685AD6252577274E00960EE6 /* KJExceptionDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KJExceptionDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		685AD6292577274E00960EE6 /* KJExceptionDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJExceptionDemoUITests.m; sourceTree = "<group>"; };
 		685AD62B2577274E00960EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68AA5C68257732830099EB48 /* NSArray+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+KJException.h"; sourceTree = "<group>"; };
+		68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+KJException.m"; sourceTree = "<group>"; };
+		68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+KJException.m"; sourceTree = "<group>"; };
+		68AA5C6C257732830099EB48 /* NSMutableArray+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+KJException.h"; sourceTree = "<group>"; };
+		68AA5C6D257732830099EB48 /* NSDictionary+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KJException.h"; sourceTree = "<group>"; };
+		68AA5C6E257732830099EB48 /* KJExceptionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJExceptionProtocol.h; sourceTree = "<group>"; };
+		68AA5C6F257732830099EB48 /* KJExceptionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJExceptionTool.h; sourceTree = "<group>"; };
+		68AA5C72257732830099EB48 /* NSArray+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+KJException.m"; sourceTree = "<group>"; };
+		68AA5C73257732830099EB48 /* NSMutableDictionary+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+KJException.h"; sourceTree = "<group>"; };
+		68AA5C74257732830099EB48 /* NSMutableString+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+KJException.h"; sourceTree = "<group>"; };
+		68AA5C75257732830099EB48 /* KJExceptionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJExceptionTool.m; sourceTree = "<group>"; };
+		68AA5C76257732830099EB48 /* NSDictionary+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KJException.m"; sourceTree = "<group>"; };
+		68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+KJException.m"; sourceTree = "<group>"; };
+		68AA5C84257732CA0099EB48 /* _KJExceptionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _KJExceptionHeader.h; sourceTree = "<group>"; };
+		725C1E3F3DEED72047F27B51 /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemo_KJExceptionDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FCF47445A22BB70F618CB44 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemo-KJExceptionDemoUITests/Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4E8D9D16C29E91090D777C5 /* Pods_KJExceptionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8251A4E66B0A624A740C95D /* Pods-KJExceptionDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemoTests.release.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemoTests/Pods-KJExceptionDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D23A3DD2C5F2A5AAAEB17EED /* Pods-KJExceptionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemo.debug.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemo/Pods-KJExceptionDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D5433CD71D59A1C51EE086D3 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemo-KJExceptionDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemo-KJExceptionDemoUITests/Pods-KJExceptionDemo-KJExceptionDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE220845BD3C869D39D873B6 /* Pods_KJExceptionDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2512DE920A237A55DA7756 /* Pods_KJExceptionDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD16BE47A8770AF114A54BB /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +129,8 @@
 				685AD61D2577274E00960EE6 /* KJExceptionDemoTests */,
 				685AD6282577274E00960EE6 /* KJExceptionDemoUITests */,
 				685AD5FD2577274D00960EE6 /* Products */,
+				B5D2B67E6439EB4C776BC8E7 /* Frameworks */,
+				A6D79CB7B2737E7FE5C96BAB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,17 +147,20 @@
 		685AD5FE2577274D00960EE6 /* KJExceptionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				685AD5FF2577274D00960EE6 /* AppDelegate.h */,
-				685AD6002577274D00960EE6 /* AppDelegate.m */,
+				68AA5C66257732830099EB48 /* Exception */,
+				685AD6102577274E00960EE6 /* LaunchScreen.storyboard */,
+				685AD6082577274D00960EE6 /* Main.storyboard */,
 				685AD6022577274D00960EE6 /* SceneDelegate.h */,
 				685AD6032577274D00960EE6 /* SceneDelegate.m */,
 				685AD6052577274D00960EE6 /* ViewController.h */,
 				685AD6062577274D00960EE6 /* ViewController.m */,
-				685AD6082577274D00960EE6 /* Main.storyboard */,
+				685AD5FF2577274D00960EE6 /* AppDelegate.h */,
+				685AD6002577274D00960EE6 /* AppDelegate.m */,
 				685AD60E2577274E00960EE6 /* Assets.xcassets */,
-				685AD6102577274E00960EE6 /* LaunchScreen.storyboard */,
-				685AD6132577274E00960EE6 /* Info.plist */,
+				684F9F1E257741C2005F1533 /* README.md */,
 				685AD6142577274E00960EE6 /* main.m */,
+				685AD6132577274E00960EE6 /* Info.plist */,
+				684F9F19257741BA005F1533 /* KJExceptionDemo.podspec */,
 				685AD60B2577274D00960EE6 /* KJExceptionDemo.xcdatamodeld */,
 			);
 			path = KJExceptionDemo;
@@ -140,6 +184,51 @@
 			path = KJExceptionDemoUITests;
 			sourceTree = "<group>";
 		};
+		68AA5C66257732830099EB48 /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				68AA5C84257732CA0099EB48 /* _KJExceptionHeader.h */,
+				68AA5C6E257732830099EB48 /* KJExceptionProtocol.h */,
+				68AA5C6F257732830099EB48 /* KJExceptionTool.h */,
+				68AA5C75257732830099EB48 /* KJExceptionTool.m */,
+				68AA5C68257732830099EB48 /* NSArray+KJException.h */,
+				68AA5C72257732830099EB48 /* NSArray+KJException.m */,
+				68AA5C6D257732830099EB48 /* NSDictionary+KJException.h */,
+				68AA5C76257732830099EB48 /* NSDictionary+KJException.m */,
+				68AA5C6C257732830099EB48 /* NSMutableArray+KJException.h */,
+				68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */,
+				68AA5C73257732830099EB48 /* NSMutableDictionary+KJException.h */,
+				68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */,
+				68AA5C74257732830099EB48 /* NSMutableString+KJException.h */,
+				68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */,
+			);
+			path = Exception;
+			sourceTree = "<group>";
+		};
+		A6D79CB7B2737E7FE5C96BAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D23A3DD2C5F2A5AAAEB17EED /* Pods-KJExceptionDemo.debug.xcconfig */,
+				4518F1E75855FEF83C0FB32E /* Pods-KJExceptionDemo.release.xcconfig */,
+				9FCF47445A22BB70F618CB44 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig */,
+				D5433CD71D59A1C51EE086D3 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.release.xcconfig */,
+				0A93A3412B5F9E4E093A8B2D /* Pods-KJExceptionDemoTests.debug.xcconfig */,
+				C8251A4E66B0A624A740C95D /* Pods-KJExceptionDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5D2B67E6439EB4C776BC8E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4E8D9D16C29E91090D777C5 /* Pods_KJExceptionDemo.framework */,
+				725C1E3F3DEED72047F27B51 /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */,
+				C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +236,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 685AD62E2577274E00960EE6 /* Build configuration list for PBXNativeTarget "KJExceptionDemo" */;
 			buildPhases = (
+				19BE1747F2F6AFE65F5D34E0 /* [CP] Check Pods Manifest.lock */,
 				685AD5F82577274D00960EE6 /* Sources */,
 				685AD5F92577274D00960EE6 /* Frameworks */,
 				685AD5FA2577274D00960EE6 /* Resources */,
@@ -164,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 685AD6312577274E00960EE6 /* Build configuration list for PBXNativeTarget "KJExceptionDemoTests" */;
 			buildPhases = (
+				84A311F7FBEBFF17936C8D2B /* [CP] Check Pods Manifest.lock */,
 				685AD6162577274E00960EE6 /* Sources */,
 				685AD6172577274E00960EE6 /* Frameworks */,
 				685AD6182577274E00960EE6 /* Resources */,
@@ -182,6 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 685AD6342577274E00960EE6 /* Build configuration list for PBXNativeTarget "KJExceptionDemoUITests" */;
 			buildPhases = (
+				1C5283738128C0B7C791C954 /* [CP] Check Pods Manifest.lock */,
 				685AD6212577274E00960EE6 /* Sources */,
 				685AD6222577274E00960EE6 /* Frameworks */,
 				685AD6232577274E00960EE6 /* Resources */,
@@ -242,7 +334,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684F9F1A257741BA005F1533 /* KJExceptionDemo.podspec in Resources */,
 				685AD6122577274E00960EE6 /* LaunchScreen.storyboard in Resources */,
+				684F9F1F257741C2005F1533 /* README.md in Resources */,
 				685AD60F2577274E00960EE6 /* Assets.xcassets in Resources */,
 				685AD60A2577274D00960EE6 /* Main.storyboard in Resources */,
 			);
@@ -264,15 +358,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19BE1747F2F6AFE65F5D34E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KJExceptionDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C5283738128C0B7C791C954 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KJExceptionDemo-KJExceptionDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84A311F7FBEBFF17936C8D2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KJExceptionDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		685AD5F82577274D00960EE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68AA5C7A257732830099EB48 /* NSMutableString+KJException.m in Sources */,
 				685AD6152577274E00960EE6 /* main.m in Sources */,
+				68AA5C7C257732830099EB48 /* NSArray+KJException.m in Sources */,
 				685AD6072577274D00960EE6 /* ViewController.m in Sources */,
+				68AA5C7D257732830099EB48 /* KJExceptionTool.m in Sources */,
+				68AA5C7F257732830099EB48 /* NSMutableArray+KJException.m in Sources */,
 				685AD60D2577274D00960EE6 /* KJExceptionDemo.xcdatamodeld in Sources */,
+				68AA5C7E257732830099EB48 /* NSDictionary+KJException.m in Sources */,
 				685AD6012577274D00960EE6 /* AppDelegate.m in Sources */,
+				68AA5C7B257732830099EB48 /* NSMutableDictionary+KJException.m in Sources */,
 				685AD6042577274D00960EE6 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +611,7 @@
 		};
 		685AD62F2577274E00960EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D23A3DD2C5F2A5AAAEB17EED /* Pods-KJExceptionDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -460,6 +630,7 @@
 		};
 		685AD6302577274E00960EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4518F1E75855FEF83C0FB32E /* Pods-KJExceptionDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -478,6 +649,7 @@
 		};
 		685AD6322577274E00960EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A93A3412B5F9E4E093A8B2D /* Pods-KJExceptionDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -498,6 +670,7 @@
 		};
 		685AD6332577274E00960EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8251A4E66B0A624A740C95D /* Pods-KJExceptionDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -518,6 +691,7 @@
 		};
 		685AD6352577274E00960EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FCF47445A22BB70F618CB44 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6E658L6H38;
@@ -536,6 +710,7 @@
 		};
 		685AD6362577274E00960EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5433CD71D59A1C51EE086D3 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6E658L6H38;
