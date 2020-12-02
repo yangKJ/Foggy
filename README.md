@@ -53,7 +53,7 @@ pod 'KJWorkbox' # 系统工具
 pod 'KJWorkbox/CommonBox'
 
 异常处理库 - 包含基本的防崩溃处理（数组，字典，字符串）
-pod 'KJException'
+pod 'KJExceptionDemo'
 
 * 如果觉得好用,希望您能Star支持,你的 ⭐️ 是我持续更新的动力!
 *
@@ -63,7 +63,7 @@ pod 'KJException'
 
 #### <a id="Cocoapods安装"></a>Cocoapods安装
 ```
-pod 'KJException'
+pod 'KJExceptionDemo'
 ```
 
 #### <a id="更新日志"></a>更新日志
@@ -71,7 +71,7 @@ pod 'KJException'
 ### 版本更新
 #### Add 1.0.0
 1. 从KJExtensionHandler当中分离出来
-2. 异常处理，请使用 pod 'KJException'
+2. 异常处理，请使用 pod 'KJExceptionDemo'
 ```
 #### <a id="打赏作者"></a>打赏作者
 * 如果你觉得有帮助，还请为我Star
