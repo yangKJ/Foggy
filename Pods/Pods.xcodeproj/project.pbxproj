@@ -31,11 +31,11 @@
 /* Begin PBXFileReference section */
 		0380DA40E8CEEF9531EC6BD6174F4AF4 /* Pods-KJExceptionDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KJExceptionDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		08E05DE9F3F0BE686E2290E64ABF4BDA /* Pods-KJExceptionDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KJExceptionDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		1387F2B51C4E06510CADCF45CCE6B5AA /* Pods_KJExceptionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KJExceptionDemo.framework; path = "Pods-KJExceptionDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1387F2B51C4E06510CADCF45CCE6B5AA /* Pods_KJExceptionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E1888BB397372F946E782DCF166EFC /* Pods-KJExceptionDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KJExceptionDemo-dummy.m"; sourceTree = "<group>"; };
 		25FD266306DA4BF9921331890C0683BB /* Pods-KJExceptionDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KJExceptionDemoTests-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		378E1184C0AEA76C027DA487032F3C9A /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KJExceptionDemo_KJExceptionDemoUITests.framework; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		378E1184C0AEA76C027DA487032F3C9A /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemo_KJExceptionDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7920A484679A564B879331CA5D5E3C /* Pods-KJExceptionDemo-KJExceptionDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests-dummy.m"; sourceTree = "<group>"; };
 		46E41746DD6E71777B45996A608F7716 /* Pods-KJExceptionDemoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KJExceptionDemoTests-Info.plist"; sourceTree = "<group>"; };
 		478D1A7105C6C1D76B9A3E9E1E344488 /* Pods-KJExceptionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KJExceptionDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -44,13 +44,13 @@
 		6C4D8A6510B6BB1F826C6598039EFF15 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		75262BF942C21DE476A4985CA8F70986 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests.modulemap"; sourceTree = "<group>"; };
 		8652FE553E1F70E7578CF674FD7ED426 /* Pods-KJExceptionDemo-KJExceptionDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FAAA26F92B5FD8AC2CC3E35C92BA79C /* Pods-KJExceptionDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KJExceptionDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A16F0192F1941BC26F0678A75D89E0AA /* Pods-KJExceptionDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KJExceptionDemo-umbrella.h"; sourceTree = "<group>"; };
 		A918D461E7E60584D4DDC39353BA979A /* Pods-KJExceptionDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KJExceptionDemoTests-umbrella.h"; sourceTree = "<group>"; };
 		B41C6B5BDE5C8651A6AF8F95FC235A1F /* Pods-KJExceptionDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KJExceptionDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B6BC2880C0DB2F136ACB353FEEDD7FA2 /* Pods-KJExceptionDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KJExceptionDemo.modulemap"; sourceTree = "<group>"; };
-		BABDF88ECDF05D5DE0BC41195CF934D3 /* Pods_KJExceptionDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KJExceptionDemoTests.framework; path = "Pods-KJExceptionDemoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABDF88ECDF05D5DE0BC41195CF934D3 /* Pods_KJExceptionDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF75CD4AE311B70102C33AA8D6BF630 /* Pods-KJExceptionDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KJExceptionDemo-Info.plist"; sourceTree = "<group>"; };
 		C022B789DCECAAA091CAC9EE8BCB5906 /* Pods-KJExceptionDemo-KJExceptionDemoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests-umbrella.h"; sourceTree = "<group>"; };
 		C4A1BC1521FB2A14EDA68D0300C9E5BA /* Pods-KJExceptionDemo-KJExceptionDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KJExceptionDemo-KJExceptionDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1220;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -460,6 +460,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -600,6 +601,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
