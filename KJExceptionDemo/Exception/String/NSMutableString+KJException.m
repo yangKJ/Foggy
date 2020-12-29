@@ -8,13 +8,14 @@
 #import "NSMutableString+KJException.h"
 
 @implementation NSMutableString (KJException)
-+ (void)kj_openExchangeMethod{
++ (void)kj_openCrashExchangeMethod{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        kExceptionMethodSwizzling(objc_getClass("__NSCFString"), @selector(appendString:), @selector(kj_appendString:));
-        kExceptionMethodSwizzling(objc_getClass("__NSCFString"), @selector(substringFromIndex:), @selector(kj_substringFromIndex:));
-        kExceptionMethodSwizzling(objc_getClass("__NSCFString"), @selector(substringToIndex:), @selector(kj_substringToIndex:));
-        kExceptionMethodSwizzling(objc_getClass("__NSCFString"), @selector(substringWithRange:), @selector(kj_substringWithRange:));
+        Class __NSCFString = objc_getClass("__NSCFString");
+        kExceptionMethodSwizzling(__NSCFString, @selector(appendString:), @selector(kj_appendString:));
+        kExceptionMethodSwizzling(__NSCFString, @selector(substringFromIndex:), @selector(kj_substringFromIndex:));
+        kExceptionMethodSwizzling(__NSCFString, @selector(substringToIndex:), @selector(kj_substringToIndex:));
+        kExceptionMethodSwizzling(__NSCFString, @selector(substringWithRange:), @selector(kj_substringWithRange:));
     });
 }
 - (void)kj_appendString:(NSString*)appendString{
@@ -22,10 +23,10 @@
         [self kj_appendString:appendString];
     }@catch (NSException *exception) {
         NSString *string = @"🍉🍉 crash：";
-        if (string == nil) {
+        if (appendString == nil) {
             string = [string stringByAppendingString:@"追加字符串为空"];
         }
-        [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
+        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
     }@finally {
         
     }
@@ -39,7 +40,7 @@
         if (from > self.length) {
             string = [string stringByAppendingString:@"字符串长度不够"];
         }
-        [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
+        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
     }@finally {
         return temp;
     }
@@ -54,7 +55,7 @@
         if (to > self.length) {
             string = [string stringByAppendingString:@"字符串长度不够"];
         }
-        [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
+        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
     }@finally {
         return temp;
     }
@@ -69,7 +70,7 @@
         if (range.location > self.length || range.length > self.length || (range.location + range.length) > self.length) {
             string = [string stringByAppendingString:@"字符串长度不够"];
         }
-        [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
+        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
     }@finally {
         return temp;
     }

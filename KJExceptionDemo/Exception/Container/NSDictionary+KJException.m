@@ -10,15 +10,16 @@
 
 @implementation NSDictionary (KJException)
 
-+ (void)kj_openExchangeMethod{
++ (void)kj_openCrashExchangeMethod{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        Class __NSPlaceholderDictionary = objc_getClass("__NSPlaceholderDictionary");
         /// 处理这种方式异常：NSDictionary *dict = @{@"key":nil};
-        kExceptionMethodSwizzling(objc_getClass("__NSPlaceholderDictionary"), @selector(initWithObjects:forKeys:count:), @selector(kj_initWithObjects:forKeys:count:));
-        kExceptionMethodSwizzling(objc_getClass("__NSPlaceholderDictionary"), @selector(dictionaryWithObjects:forKeys:count:), @selector(kj_dictionaryWithObjects:forKeys:count:));
+        kExceptionMethodSwizzling(__NSPlaceholderDictionary, @selector(initWithObjects:forKeys:count:), @selector(kj_initWithObjects:forKeys:count:));
+        kExceptionMethodSwizzling(__NSPlaceholderDictionary, @selector(dictionaryWithObjects:forKeys:count:), @selector(kj_dictionaryWithObjects:forKeys:count:));
     });
 }
-- (instancetype)kj_initWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)cnt{
+- (instancetype)kj_initWithObjects:(const id [])objects forKeys:(const id<NSCopying>[])keys count:(NSUInteger)cnt{
     id instance = nil;
     @try {
         instance = [self kj_initWithObjects:objects forKeys:keys count:cnt];
@@ -42,13 +43,13 @@
             safeObjects[index] = obj;
             index++;
         }
-        [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
+        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
         instance = [self kj_initWithObjects:safeObjects forKeys:safeKeys count:index];
     }@finally {
         return instance;
     }
 }
-+ (instancetype)kj_dictionaryWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)cnt{
++ (instancetype)kj_dictionaryWithObjects:(const id [])objects forKeys:(const id<NSCopying>[])keys count:(NSUInteger)cnt{
     id instance = nil;
     @try {
         instance = [self kj_dictionaryWithObjects:objects forKeys:keys count:cnt];
@@ -72,7 +73,7 @@
             safeObjects[index] = obj;
             index++;
         }
-        [KJExceptionTool kj_crashDealWithException:exception CrashTitle:string];
+        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
         instance = [self kj_dictionaryWithObjects:safeObjects forKeys:safeKeys count:index];
     }@finally {
         return instance;

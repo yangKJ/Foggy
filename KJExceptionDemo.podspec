@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = "KJExceptionDemo"
-  s.version  = "1.0.1"
+  s.version  = "1.0.2"
   s.summary  = "Exception handling tool"
   s.homepage = "https://github.com/yangKJ/KJExceptionDemo"
   s.license  = "MIT"
@@ -10,6 +10,5 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://www.jianshu.com/u/c84c00476ab6'
   s.requires_arc = true
   s.source_files = 'KJExceptionDemo/Exception/**/*.{h,m}'
+  s.resources = "README.md"
 end
-
-

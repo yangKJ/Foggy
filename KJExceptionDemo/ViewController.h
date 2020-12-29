@@ -9,6 +9,7 @@
 
 @interface ViewController : UIViewController
 
++ (void)test_UnrecognizedSelector;
 
 @end
 

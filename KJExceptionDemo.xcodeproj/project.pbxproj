@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3AD16BE47A8770AF114A54BB /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C1E3F3DEED72047F27B51 /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */; };
+		683DDDC52587633A00718F03 /* KJCrashProtectorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DDDC42587633A00718F03 /* KJCrashProtectorManager.m */; };
+		683DDDCE2587675D00718F03 /* NSMutableAttributedString+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DDDCD2587675D00718F03 /* NSMutableAttributedString+KJException.m */; };
+		683DDDD72587677C00718F03 /* NSString+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DDDD62587677C00718F03 /* NSString+KJException.m */; };
+		683DDDDD2587679600718F03 /* NSAttributedString+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DDDDC2587679600718F03 /* NSAttributedString+KJException.m */; };
+		683DDDE82587733700718F03 /* NSObject+KJUnrecognizedSelectorException.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DDDE72587733700718F03 /* NSObject+KJUnrecognizedSelectorException.m */; };
+		684A42F62589DE0900CA3B49 /* NSNull+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A42F52589DE0900CA3B49 /* NSNull+KJException.m */; };
 		684F9F1A257741BA005F1533 /* KJExceptionDemo.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 684F9F19257741BA005F1533 /* KJExceptionDemo.podspec */; };
 		684F9F1F257741C2005F1533 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 684F9F1E257741C2005F1533 /* README.md */; };
+		6854A8BB259AD55D000AF944 /* NSObject+KJKVOException.m in Sources */ = {isa = PBXBuildFile; fileRef = 6854A8BA259AD55D000AF944 /* NSObject+KJKVOException.m */; };
+		6854A8C2259AFA75000AF944 /* UIView+KJNonMainException.m in Sources */ = {isa = PBXBuildFile; fileRef = 6854A8C1259AFA75000AF944 /* UIView+KJNonMainException.m */; };
 		685AD6012577274D00960EE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6002577274D00960EE6 /* AppDelegate.m */; };
 		685AD6042577274D00960EE6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6032577274D00960EE6 /* SceneDelegate.m */; };
 		685AD6072577274D00960EE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6062577274D00960EE6 /* ViewController.m */; };
@@ -20,12 +28,14 @@
 		685AD6152577274E00960EE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6142577274E00960EE6 /* main.m */; };
 		685AD61F2577274E00960EE6 /* KJExceptionDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD61E2577274E00960EE6 /* KJExceptionDemoTests.m */; };
 		685AD62A2577274E00960EE6 /* KJExceptionDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 685AD6292577274E00960EE6 /* KJExceptionDemoUITests.m */; };
+		68913FCD25884B79005DDB82 /* NSObject+KJCustomException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68913FCC25884B79005DDB82 /* NSObject+KJCustomException.m */; };
 		68AA5C7A257732830099EB48 /* NSMutableString+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */; };
 		68AA5C7B257732830099EB48 /* NSMutableDictionary+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */; };
 		68AA5C7C257732830099EB48 /* NSArray+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C72257732830099EB48 /* NSArray+KJException.m */; };
-		68AA5C7D257732830099EB48 /* KJExceptionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C75257732830099EB48 /* KJExceptionTool.m */; };
+		68AA5C7D257732830099EB48 /* KJCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C75257732830099EB48 /* KJCrashManager.m */; };
 		68AA5C7E257732830099EB48 /* NSDictionary+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C76257732830099EB48 /* NSDictionary+KJException.m */; };
 		68AA5C7F257732830099EB48 /* NSMutableArray+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */; };
+		68B17EC2258B662E00177E4E /* NSTimer+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B17EC1258B662E00177E4E /* NSTimer+KJException.m */; };
 		7E2512DE920A237A55DA7756 /* Pods_KJExceptionDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */; };
 		EE220845BD3C869D39D873B6 /* Pods_KJExceptionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E8D9D16C29E91090D777C5 /* Pods_KJExceptionDemo.framework */; };
 /* End PBXBuildFile section */
@@ -50,8 +60,24 @@
 /* Begin PBXFileReference section */
 		0A93A3412B5F9E4E093A8B2D /* Pods-KJExceptionDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemoTests/Pods-KJExceptionDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4518F1E75855FEF83C0FB32E /* Pods-KJExceptionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemo.release.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemo/Pods-KJExceptionDemo.release.xcconfig"; sourceTree = "<group>"; };
-		684F9F19257741BA005F1533 /* KJExceptionDemo.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = KJExceptionDemo.podspec; sourceTree = SOURCE_ROOT; };
+		683DDDC32587633A00718F03 /* KJCrashProtectorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJCrashProtectorManager.h; sourceTree = "<group>"; };
+		683DDDC42587633A00718F03 /* KJCrashProtectorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJCrashProtectorManager.m; sourceTree = "<group>"; };
+		683DDDCC2587675D00718F03 /* NSMutableAttributedString+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KJException.h"; sourceTree = "<group>"; };
+		683DDDCD2587675D00718F03 /* NSMutableAttributedString+KJException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+KJException.m"; sourceTree = "<group>"; };
+		683DDDD52587677C00718F03 /* NSString+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+KJException.h"; sourceTree = "<group>"; };
+		683DDDD62587677C00718F03 /* NSString+KJException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+KJException.m"; sourceTree = "<group>"; };
+		683DDDDB2587679600718F03 /* NSAttributedString+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+KJException.h"; sourceTree = "<group>"; };
+		683DDDDC2587679600718F03 /* NSAttributedString+KJException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+KJException.m"; sourceTree = "<group>"; };
+		683DDDE62587733700718F03 /* NSObject+KJUnrecognizedSelectorException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KJUnrecognizedSelectorException.h"; sourceTree = "<group>"; };
+		683DDDE72587733700718F03 /* NSObject+KJUnrecognizedSelectorException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KJUnrecognizedSelectorException.m"; sourceTree = "<group>"; };
+		684A42F42589DE0900CA3B49 /* NSNull+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNull+KJException.h"; sourceTree = "<group>"; };
+		684A42F52589DE0900CA3B49 /* NSNull+KJException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNull+KJException.m"; sourceTree = "<group>"; };
+		684F9F19257741BA005F1533 /* KJExceptionDemo.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KJExceptionDemo.podspec; sourceTree = SOURCE_ROOT; };
 		684F9F1E257741C2005F1533 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		6854A8B9259AD55D000AF944 /* NSObject+KJKVOException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KJKVOException.h"; sourceTree = "<group>"; };
+		6854A8BA259AD55D000AF944 /* NSObject+KJKVOException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KJKVOException.m"; sourceTree = "<group>"; };
+		6854A8C0259AFA75000AF944 /* UIView+KJNonMainException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+KJNonMainException.h"; sourceTree = "<group>"; };
+		6854A8C1259AFA75000AF944 /* UIView+KJNonMainException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+KJNonMainException.m"; sourceTree = "<group>"; };
 		685AD5FC2577274D00960EE6 /* KJExceptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJExceptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685AD5FF2577274D00960EE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		685AD6002577274D00960EE6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,20 +97,23 @@
 		685AD6252577274E00960EE6 /* KJExceptionDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KJExceptionDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		685AD6292577274E00960EE6 /* KJExceptionDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJExceptionDemoUITests.m; sourceTree = "<group>"; };
 		685AD62B2577274E00960EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68913FCB25884B79005DDB82 /* NSObject+KJCustomException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KJCustomException.h"; sourceTree = "<group>"; };
+		68913FCC25884B79005DDB82 /* NSObject+KJCustomException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KJCustomException.m"; sourceTree = "<group>"; };
 		68AA5C68257732830099EB48 /* NSArray+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+KJException.h"; sourceTree = "<group>"; };
 		68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+KJException.m"; sourceTree = "<group>"; };
 		68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+KJException.m"; sourceTree = "<group>"; };
 		68AA5C6C257732830099EB48 /* NSMutableArray+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+KJException.h"; sourceTree = "<group>"; };
 		68AA5C6D257732830099EB48 /* NSDictionary+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KJException.h"; sourceTree = "<group>"; };
-		68AA5C6E257732830099EB48 /* KJExceptionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJExceptionProtocol.h; sourceTree = "<group>"; };
-		68AA5C6F257732830099EB48 /* KJExceptionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJExceptionTool.h; sourceTree = "<group>"; };
+		68AA5C6E257732830099EB48 /* KJCrashProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJCrashProtocol.h; sourceTree = "<group>"; };
+		68AA5C6F257732830099EB48 /* KJCrashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJCrashManager.h; sourceTree = "<group>"; };
 		68AA5C72257732830099EB48 /* NSArray+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+KJException.m"; sourceTree = "<group>"; };
 		68AA5C73257732830099EB48 /* NSMutableDictionary+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+KJException.h"; sourceTree = "<group>"; };
 		68AA5C74257732830099EB48 /* NSMutableString+KJException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+KJException.h"; sourceTree = "<group>"; };
-		68AA5C75257732830099EB48 /* KJExceptionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJExceptionTool.m; sourceTree = "<group>"; };
+		68AA5C75257732830099EB48 /* KJCrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJCrashManager.m; sourceTree = "<group>"; };
 		68AA5C76257732830099EB48 /* NSDictionary+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KJException.m"; sourceTree = "<group>"; };
 		68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+KJException.m"; sourceTree = "<group>"; };
-		68AA5C84257732CA0099EB48 /* _KJExceptionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _KJExceptionHeader.h; sourceTree = "<group>"; };
+		68B17EC0258B662E00177E4E /* NSTimer+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+KJException.h"; sourceTree = "<group>"; };
+		68B17EC1258B662E00177E4E /* NSTimer+KJException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+KJException.m"; sourceTree = "<group>"; };
 		725C1E3F3DEED72047F27B51 /* Pods_KJExceptionDemo_KJExceptionDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemo_KJExceptionDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCF47445A22BB70F618CB44 /* Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-KJExceptionDemo-KJExceptionDemoUITests/Pods-KJExceptionDemo-KJExceptionDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KJExceptionDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +151,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		683DDDCA2587665800718F03 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				68AA5C68257732830099EB48 /* NSArray+KJException.h */,
+				68AA5C72257732830099EB48 /* NSArray+KJException.m */,
+				68AA5C6D257732830099EB48 /* NSDictionary+KJException.h */,
+				68AA5C76257732830099EB48 /* NSDictionary+KJException.m */,
+				68AA5C6C257732830099EB48 /* NSMutableArray+KJException.h */,
+				68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */,
+				68AA5C73257732830099EB48 /* NSMutableDictionary+KJException.h */,
+				68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		683DDDCB2587666300718F03 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				683DDDDB2587679600718F03 /* NSAttributedString+KJException.h */,
+				683DDDDC2587679600718F03 /* NSAttributedString+KJException.m */,
+				683DDDCC2587675D00718F03 /* NSMutableAttributedString+KJException.h */,
+				683DDDCD2587675D00718F03 /* NSMutableAttributedString+KJException.m */,
+				68AA5C74257732830099EB48 /* NSMutableString+KJException.h */,
+				68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */,
+				683DDDD52587677C00718F03 /* NSString+KJException.h */,
+				683DDDD62587677C00718F03 /* NSString+KJException.m */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		683DDDE52587732300718F03 /* UnrecognizedSelector */ = {
+			isa = PBXGroup;
+			children = (
+				683DDDE62587733700718F03 /* NSObject+KJUnrecognizedSelectorException.h */,
+				683DDDE72587733700718F03 /* NSObject+KJUnrecognizedSelectorException.m */,
+			);
+			path = UnrecognizedSelector;
+			sourceTree = "<group>";
+		};
+		684A42F32589DDF000CA3B49 /* NSNull */ = {
+			isa = PBXGroup;
+			children = (
+				684A42F42589DE0900CA3B49 /* NSNull+KJException.h */,
+				684A42F52589DE0900CA3B49 /* NSNull+KJException.m */,
+			);
+			path = NSNull;
+			sourceTree = "<group>";
+		};
+		6854A8B8259AD51B000AF944 /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				6854A8B9259AD55D000AF944 /* NSObject+KJKVOException.h */,
+				6854A8BA259AD55D000AF944 /* NSObject+KJKVOException.m */,
+			);
+			path = KVO;
+			sourceTree = "<group>";
+		};
+		6854A8BF259AFA53000AF944 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6854A8C0259AFA75000AF944 /* UIView+KJNonMainException.h */,
+				6854A8C1259AFA75000AF944 /* UIView+KJNonMainException.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		685AD5F32577274D00960EE6 = {
 			isa = PBXGroup;
 			children = (
@@ -187,22 +282,31 @@
 		68AA5C66257732830099EB48 /* Exception */ = {
 			isa = PBXGroup;
 			children = (
-				68AA5C84257732CA0099EB48 /* _KJExceptionHeader.h */,
-				68AA5C6E257732830099EB48 /* KJExceptionProtocol.h */,
-				68AA5C6F257732830099EB48 /* KJExceptionTool.h */,
-				68AA5C75257732830099EB48 /* KJExceptionTool.m */,
-				68AA5C68257732830099EB48 /* NSArray+KJException.h */,
-				68AA5C72257732830099EB48 /* NSArray+KJException.m */,
-				68AA5C6D257732830099EB48 /* NSDictionary+KJException.h */,
-				68AA5C76257732830099EB48 /* NSDictionary+KJException.m */,
-				68AA5C6C257732830099EB48 /* NSMutableArray+KJException.h */,
-				68AA5C77257732830099EB48 /* NSMutableArray+KJException.m */,
-				68AA5C73257732830099EB48 /* NSMutableDictionary+KJException.h */,
-				68AA5C6B257732830099EB48 /* NSMutableDictionary+KJException.m */,
-				68AA5C74257732830099EB48 /* NSMutableString+KJException.h */,
-				68AA5C6A257732830099EB48 /* NSMutableString+KJException.m */,
+				6854A8B8259AD51B000AF944 /* KVO */,
+				684A42F32589DDF000CA3B49 /* NSNull */,
+				68B17EBF258B661700177E4E /* NSTimer */,
+				683DDDCB2587666300718F03 /* String */,
+				6854A8BF259AFA53000AF944 /* UI */,
+				683DDDE52587732300718F03 /* UnrecognizedSelector */,
+				683DDDCA2587665800718F03 /* Container */,
+				68AA5C6F257732830099EB48 /* KJCrashManager.h */,
+				68AA5C75257732830099EB48 /* KJCrashManager.m */,
+				683DDDC32587633A00718F03 /* KJCrashProtectorManager.h */,
+				683DDDC42587633A00718F03 /* KJCrashProtectorManager.m */,
+				68AA5C6E257732830099EB48 /* KJCrashProtocol.h */,
+				68913FCB25884B79005DDB82 /* NSObject+KJCustomException.h */,
+				68913FCC25884B79005DDB82 /* NSObject+KJCustomException.m */,
 			);
 			path = Exception;
+			sourceTree = "<group>";
+		};
+		68B17EBF258B661700177E4E /* NSTimer */ = {
+			isa = PBXGroup;
+			children = (
+				68B17EC0258B662E00177E4E /* NSTimer+KJException.h */,
+				68B17EC1258B662E00177E4E /* NSTimer+KJException.m */,
+			);
+			path = NSTimer;
 			sourceTree = "<group>";
 		};
 		A6D79CB7B2737E7FE5C96BAB /* Pods */ = {
@@ -215,7 +319,6 @@
 				0A93A3412B5F9E4E093A8B2D /* Pods-KJExceptionDemoTests.debug.xcconfig */,
 				C8251A4E66B0A624A740C95D /* Pods-KJExceptionDemoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -435,14 +538,24 @@
 				68AA5C7A257732830099EB48 /* NSMutableString+KJException.m in Sources */,
 				685AD6152577274E00960EE6 /* main.m in Sources */,
 				68AA5C7C257732830099EB48 /* NSArray+KJException.m in Sources */,
+				6854A8C2259AFA75000AF944 /* UIView+KJNonMainException.m in Sources */,
+				6854A8BB259AD55D000AF944 /* NSObject+KJKVOException.m in Sources */,
+				68913FCD25884B79005DDB82 /* NSObject+KJCustomException.m in Sources */,
 				685AD6072577274D00960EE6 /* ViewController.m in Sources */,
-				68AA5C7D257732830099EB48 /* KJExceptionTool.m in Sources */,
+				683DDDD72587677C00718F03 /* NSString+KJException.m in Sources */,
+				683DDDCE2587675D00718F03 /* NSMutableAttributedString+KJException.m in Sources */,
+				683DDDDD2587679600718F03 /* NSAttributedString+KJException.m in Sources */,
+				68AA5C7D257732830099EB48 /* KJCrashManager.m in Sources */,
 				68AA5C7F257732830099EB48 /* NSMutableArray+KJException.m in Sources */,
 				685AD60D2577274D00960EE6 /* KJExceptionDemo.xcdatamodeld in Sources */,
+				68B17EC2258B662E00177E4E /* NSTimer+KJException.m in Sources */,
+				683DDDE82587733700718F03 /* NSObject+KJUnrecognizedSelectorException.m in Sources */,
 				68AA5C7E257732830099EB48 /* NSDictionary+KJException.m in Sources */,
 				685AD6012577274D00960EE6 /* AppDelegate.m in Sources */,
+				684A42F62589DE0900CA3B49 /* NSNull+KJException.m in Sources */,
 				68AA5C7B257732830099EB48 /* NSMutableDictionary+KJException.m in Sources */,
 				685AD6042577274D00960EE6 /* SceneDelegate.m in Sources */,
+				683DDDC52587633A00718F03 /* KJCrashProtectorManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -601,7 +714,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
