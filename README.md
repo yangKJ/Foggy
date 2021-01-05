@@ -43,13 +43,17 @@ void kExceptionClassMethodSwizzling(Class clazz, SEL original, SEL swizzled){
 SEL   |  unrecognized selector sent to instance   .h定义但.m没实现
 SEL   |  performSelector: 调用不存在的方法
 SEL   |  delegate 回调前没有判空而是直接调用
-SEL   |  id 类型没有判断类型，强行调用了真实类型不存在的方法
-SEL   |  copy 修饰的可变的字符串 \ 字典 \ 数组 \ 集合 \ Data，调用了可变的方法
+SEL   |  id 类型没有判断类型，强行调用真实类型不存在的方法
+SEL   |  copy 修饰的可变的字符串 \ 字典 \ 数组 \ 集合 \ Data，调用可变的方法
 > 消息转发流程图：  
 > ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25f3694cd3aa45ce8f2b90f3ab176cbb~tplv-k3u1fbpfcp-zoom-1.image)
 
 #### 解决方案：
 - 交换方法`methodSignatureForSelector:` 和 `forwardInvocation:`
+- 对象调用方法经过三个阶段
+  1. 消息发送：查询cache和方法列表，找到了直接调用，找不到方法会进入下个阶段
+  2. 动态解析: 调用实例方法`resolveInstanceMethod`或类方法`resolveClassMethod`里面可以有一次动态添加方法的机会
+  3. 消息转发：首先会判断是否有其他对象可以处理方法`forwardingTargetForSelector`返回一个新的对象，如果没有新的对象进行处理，会调用`methodSignatureForSelector`方法返回方法签名，然后调用`forwardInvocation`
 - 选择在消息转发的最后一步来做处理，`methodSignatureForSelector:`消息获得函数的参数和返回值，然后`[self respondsToSelector:aSelector]`判断是否有该方法，如果没有返回函数签名，创建一个NSInvocation对象并发送给`forwardInvocation`
 
 ### 二、容器越界 - 数组和字典
@@ -58,8 +62,19 @@ SEL   |  copy 修饰的可变的字符串 \ 字典 \ 数组 \ 集合 \ Data，�
 NSArray  |  数组索引越界、插入空对象
 NSDictionary  |  key、value 为空
 > 备注：可变的都继承自不可变的，所有可变的分类中，重复的方法就不用再次替换
+
 #### 解决方案：
-- 交换方法，然后防护处理，简单举个例子，解决`越界崩溃方式一：[array objectAtIndex:0];`这种方式越界
+- 交换方法，然后防护处理，简单举个例子，NSArray 是一个类簇，它真正的类型是`__NSArrayI`，交换方法如下  
+
+```
+Class __NSArrayI = objc_getClass("__NSArrayI");
+/// 越界崩溃方式一：[array objectAtIndex:0];
+kExceptionMethodSwizzling(__NSArrayI, @selector(objectAtIndex:), @selector(kj_objectAtIndex:));
+/// 越界崩溃方式二：array[0];
+kExceptionMethodSwizzling(__NSArrayI, @selector(objectAtIndexedSubscript:), @selector(kj_objectAtIndexedSubscript:));
+```
+交换后的处理  
+
 ```
 - (instancetype)kj_objectAtIndex:(NSUInteger)index{
     NSArray *temp = nil;
@@ -86,6 +101,7 @@ KVO  |  添加了监听，没有移除
 
 #### 解决方案：
 - 交换`removeObserver:forKeyPath:`方法，
+
 ```
 - (void)kj_removeObserver:(NSObject*)observer forKeyPath:(NSString *)keyPath{
     @try {
@@ -107,7 +123,7 @@ NSTimer  |  NStimer 与 target 强引用，内存泄漏
 
 #### 解决方案：
 - 交换`scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:`方法
-- 当`repeats`为NO走原始方法，为YES时候创建一个中间`KJNSTimerProtector`对象弱引用`target`，当中间对象的`target == nil`时，清理NSTimer。从而解决了循环引用的问题
+- 定义一个抽象类`KJProxyProtector`，NSTimer实例强引用抽象类，而在抽象类中弱引用target，这样target和NSTimer之间的关系也就是弱引用，意味着target可以自由的释放，从而解决循环引用的问题
 
 ###  五、后台返回NSNull导致的崩溃
 类型  |  原因  
@@ -124,6 +140,7 @@ NSNull | 后台返回NSNull导致的崩溃
 ## 异常收集
 ### 一、防护类型
 目前提供以下七种
+
 ```
 typedef NS_OPTIONS(NSInteger, KJCrashProtectorType) {
     KJCrashProtectorTypeContainer = 1 << 0,// 数组和字典
@@ -137,6 +154,7 @@ typedef NS_OPTIONS(NSInteger, KJCrashProtectorType) {
 ```
 ### 二、开启防护
 采用多枚举方式，来快速设置需要开发的防护
+
 ```
 /// 开启全部防护
 + (void)kj_openAllCrashProtectorManager:(kExceptionBlock)block{
@@ -183,6 +201,7 @@ typedef NS_OPTIONS(NSInteger, KJCrashProtectorType) {
 
 ### 三、解析异常消息
 采用正则表达式来匹配出来方法名
+
 ```
 /// 解析异常消息
 + (NSString*)kj_analysisCallStackSymbols:(NSArray<NSString*>*)callStackSymbols{
@@ -211,8 +230,7 @@ typedef NS_OPTIONS(NSInteger, KJCrashProtectorType) {
 ### 熟悉又讨厌的崩溃
 ```
 *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]'
-*** First throw call stack:
-(
+*** First throw call stack:(
     0   CoreFoundation                      0x0000000103dca126 __exceptionPreprocess + 242
     1   libobjc.A.dylib                     0x0000000103c54f78 objc_exception_throw + 48
     2   CoreFoundation                      0x0000000103e46cdb _CFThrowFormattedException + 194
