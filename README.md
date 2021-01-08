@@ -10,6 +10,19 @@
 
 ### 设计原理
 利用 Objective-C 语言的动态特性，采用AOP面向切面编程的设计思想，交换方法然后拦截处理崩溃信息
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/529e7eb738644bf2a32ddeb341a9e277~tplv-k3u1fbpfcp-watermark.image)
+
+| 方法 | 功能 |
+| :--- | :--- |
+| class_getInstanceMethod | 获取实例方法 |
+| class_getClassMethod | 获取类方法 |
+| method_getImplementation | 获取一个方法的实现 |
+| method_setImplementation | 设置一个方法的实现 |
+| method_getTypeEncoding | 获取方法实现的编码类型 |
+| class_addMethod | 添加方法实现 |
+| class_replaceMethod | 用一个方法的实现，替换另一个方法的实现，即aIMP 指向 bIMP，但是bIMP不一定指向aIMP |
+| method_exchangeImplementations | 交换两个方法的实现，即 aIMP -> bIMP, bIMP -> aIMP |
+
 #### 交换实例方法
 ```
 void kExceptionMethodSwizzling(Class clazz, SEL original, SEL swizzled){
