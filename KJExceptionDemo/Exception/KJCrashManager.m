@@ -7,58 +7,38 @@
 
 #import "KJCrashManager.h"
 
-@interface KJCrashManager ()
-@property(nonatomic,copy,readwrite,class) kExceptionBlock exceptionblock;
-@end
-
 @implementation KJCrashManager
-/// 简单崩溃日志收集，AppDelegate里注册函数 kUncaughtException
-NS_INLINE void kUncaughtExceptionHandler(NSException *exception);
-void kUncaughtException(void){
-    NSSetUncaughtExceptionHandler(&kUncaughtExceptionHandler);
-}
-NS_INLINE void kUncaughtExceptionHandler(NSException *exception) {
-    NSLog(@"**************** 崩溃日志收集器 ****************");
-    NSLog(@"%@",exception);
-    NSLog(@"%@",exception.callStackReturnAddresses);
-    NSLog(@"%@",exception.callStackSymbols);
-    NSLog(@"*********************************************");
-    
-    // 默认信号量方式处理程序
-    signal(SIGABRT, SIG_DFL); // abort()函数调用发生的程序终止信号(对象方法不存在、数组越界、内存失败等回调)
-    signal(SIGILL, SIG_DFL);  // 非法指令产生的程序终止信号
-    signal(SIGSEGV, SIG_DFL); // 无效内存的引用导致程序终止信号(野指针错误)
-    signal(SIGFPE, SIG_DFL);  // 浮点数异常导致程序终止信号
-    signal(SIGBUS, SIG_DFL);  // 内存地址未对齐导致程序终止信号
-    signal(SIGPIPE, SIG_DFL); // 端口发送消息失败导致程序终止信号
-}
-static kExceptionBlock _exceptionblock = nil;
-+ (kExceptionBlock)exceptionblock{return _exceptionblock;}
-+ (void)setExceptionblock:(kExceptionBlock)exceptionblock{
-    _exceptionblock = exceptionblock;
-}
 /// 异常回调处理
-+ (void)kj_crashBlock:(kExceptionBlock)block{
-    self.exceptionblock = block;
+static void (^_exceptionblock)(NSDictionary *userInfo) = nil;
+void kExceptionCrashCallBack(void(^block)(NSDictionary *userInfo)){
+    _exceptionblock = block;
 }
-/// 异常获取
-+ (void)kj_crashDealWithException:(NSException*)exception CrashTitle:(NSString*)title{
-    NSString *crashMessage = [self kj_analysisCallStackSymbols:[NSThread callStackSymbols]];
-    if (crashMessage == nil) crashMessage = @"崩溃方法定位失败,请查看函数调用栈来排查错误原因";
-    NSString *crashReason = exception.reason;
-    crashReason = [crashReason stringByReplacingOccurrencesOfString:@"avoidCrash" withString:@""];
-    NSLog(@"\n************ crash 日志 ************\n标题：%@\n异常原因：%@\n异常地址：%@",title,crashReason,crashMessage);
-    if (self.exceptionblock) {
-        NSDictionary *dict = @{@"crashTitle":title,
-                               @"crashReason":crashReason,
-                               @"crashMessage":crashMessage,
-                               @"exception":exception
+/// 是否开启开发模式强制提醒
+static BOOL _throwOpen = NO;
+void kExceptionThrowOpen(BOOL open){
+    _throwOpen = open;
+}
+/// 异常获取解析
+void kExceptionCrashAnalysis(NSException *exception, NSString *title){
+    NSArray *stacks = [NSThread callStackSymbols];
+    NSString *selector = [KJCrashManager kj_analysisCallStackSymbols:stacks];
+    if (selector == nil) selector = @"The crash method failed to locate, Check the function call stack to find the cause of the error";
+    if (_exceptionblock) {
+        NSDictionary *dict = @{@"title":title,
+                               @"selector":selector,
+                               @"exception":exception,
+                               @"stacks":stacks
         };
-        __weak __typeof(&*self) weakself = self;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakself.exceptionblock(dict);
-        });
+        _exceptionblock(dict);
     }
+#ifdef DEBUG
+    if (_throwOpen) {
+        NSLog(@"\n******************** crash 日志 ********************\
+              \n%@\n异常方法：%@\n异常信息：%@\n堆栈信息：%@\n",
+              title, selector, exception, stacks);
+        @throw exception;//调试模式时，强制抛出异常，提醒开发者代码有问题
+    }
+#endif
 }
 /// 解析异常消息
 + (NSString*)kj_analysisCallStackSymbols:(NSArray<NSString*>*)callStackSymbols{
@@ -67,7 +47,8 @@ static kExceptionBlock _exceptionblock = nil;
     NSRegularExpression *regularExp = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
     for (NSInteger i = 2; i < callStackSymbols.count; i++) {
         NSString *matchesString = callStackSymbols[i];
-        [regularExp enumerateMatchesInString:matchesString options:NSMatchingReportProgress range:NSMakeRange(0, matchesString.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        NSRange range = NSMakeRange(0, matchesString.length);
+        [regularExp enumerateMatchesInString:matchesString options:NSMatchingReportProgress range:range usingBlock:^(NSTextCheckingResult * result, NSMatchingFlags flags, BOOL * stop) {
             if (result) {
                 NSString *tempMsg = [matchesString substringWithRange:result.range];
                 NSString *className = [tempMsg componentsSeparatedByString:@" "].firstObject;
@@ -83,4 +64,27 @@ static kExceptionBlock _exceptionblock = nil;
     return msg;
 }
 
+/// 交换方法的实现
+void kExceptionMethodSwizzling(Class clazz, SEL original, SEL swizzled){
+    Method originalMethod = class_getInstanceMethod(clazz, original);
+    Method swizzledMethod = class_getInstanceMethod(clazz, swizzled);
+    if (class_addMethod(clazz, original, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
+        class_replaceMethod(clazz, swizzled, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    }else{
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+/// 交换类方法
+void kExceptionClassMethodSwizzling(Class clazz, SEL original, SEL swizzled){
+    Method originalMethod = class_getClassMethod(clazz, original);
+    Method swizzledMethod = class_getClassMethod(clazz, swizzled);
+    Class metaclass = objc_getMetaClass(NSStringFromClass(clazz).UTF8String);
+    if (class_addMethod(metaclass, original, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
+        class_replaceMethod(metaclass, swizzled, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    }else{
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
 @end
+ 

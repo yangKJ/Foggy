@@ -9,15 +9,16 @@
 // 抽象类，抽象类中弱引用target
 @interface KJProxyProtector : NSProxy
 + (instancetype)kj_proxyWithTarget:(id)target selector:(SEL)selector;
-@property(nonatomic,weak)id target;/// 消息转发的对象
+@property(nonatomic,weak)id target;
 @end
 @implementation KJProxyProtector
 + (instancetype)kj_proxyWithTarget:(id)target selector:(SEL)selector{
     if (target == nil) {
-        NSString *string = [NSString stringWithFormat:@"🍉🍉 crash：%@ 类出现计时器内存泄漏",[NSString stringWithCString:object_getClassName(target) encoding:NSASCIIStringEncoding]];
-        NSString *reason = [NSStringFromSelector(selector) stringByAppendingString:@" 🚗🚗方法出现强引用造成内存泄漏🚗🚗"];
+        NSString *name = [NSString stringWithCString:object_getClassName(target) encoding:NSASCIIStringEncoding];
+        NSString *string = [NSString stringWithFormat:@"🍉🍉 异常标题：%@ 类出现计时器强引用内存泄漏", name];
+        NSString *reason = [NSString stringWithFormat:@"*** +[%@ %@]: Strong references cause memory leaks.", name, NSStringFromSelector(selector)];
         NSException *exception = [NSException exceptionWithName:@"NSTimer抛错" reason:reason userInfo:@{}];
-        [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
+        kExceptionCrashAnalysis(exception, string);
     }
     KJProxyProtector *proxy = [KJProxyProtector alloc];
     proxy.target = target;

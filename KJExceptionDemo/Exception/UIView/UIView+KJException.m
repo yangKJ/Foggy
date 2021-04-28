@@ -1,20 +1,19 @@
 //
-//  UIView+KJNonMainException.m
+//  UIView+KJException.m
 //  KJExceptionDemo
 //
 //  Created by 杨科军 on 2020/12/29.
 //  https://github.com/yangKJ/KJExceptionDemo
 
-#import "UIView+KJNonMainException.h"
+#import "UIView+KJException.h"
 
 @implementation UIView (KJException)
 + (void)kj_openCrashExchangeMethod{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         kExceptionMethodSwizzling(self, @selector(setNeedsLayout), @selector(kj_setNeedsLayout));
-        kExceptionMethodSwizzling(self, @selector(layoutIfNeeded), @selector(kj_layoutIfNeeded));
-        kExceptionMethodSwizzling(self, @selector(layoutSubviews), @selector(kj_layoutSubviews));
-        kExceptionMethodSwizzling(self, @selector(setNeedsUpdateConstraints), @selector(kj_setNeedsUpdateConstraints));
+        kExceptionMethodSwizzling(self, @selector(setNeedsDisplay), @selector(kj_setNeedsDisplay));
+        kExceptionMethodSwizzling(self, @selector(setNeedsDisplayInRect:), @selector(kj_setNeedsDisplayInRect:));
     });
 }
 - (void)kj_setNeedsLayout{
@@ -28,38 +27,28 @@
     }
 }
 
-- (void)kj_layoutIfNeeded{
+- (void)kj_setNeedsDisplay{
     if ([NSThread isMainThread]) {
-        [self kj_layoutIfNeeded];
+        [self kj_setNeedsDisplay];
     }else{
         kGCD_Exception_main(^{
-            [self kj_layoutIfNeeded];
+            [self kj_setNeedsDisplay];
             [self kj_setSelector:_cmd];
         });
     }
 }
 
-- (void)kj_layoutSubviews{
+- (void)kj_setNeedsDisplayInRect:(CGRect)rect{
     if ([NSThread isMainThread]) {
-        [self kj_layoutSubviews];
+        [self kj_setNeedsDisplayInRect:rect];
     }else{
         kGCD_Exception_main(^{
-            [self kj_layoutSubviews];
+            [self kj_setNeedsDisplayInRect:rect];
             [self kj_setSelector:_cmd];
         });
     }
 }
 
-- (void)kj_setNeedsUpdateConstraints{
-    if ([NSThread isMainThread]) {
-        [self kj_setNeedsUpdateConstraints];
-    }else{
-        kGCD_Exception_main(^{
-            [self kj_setNeedsUpdateConstraints];
-            [self kj_setSelector:_cmd];
-        });
-    }
-}
 /// 主线程
 static void kGCD_Exception_main(dispatch_block_t block) {
     dispatch_queue_t queue = dispatch_get_main_queue();
@@ -74,10 +63,10 @@ static void kGCD_Exception_main(dispatch_block_t block) {
     }
 }
 - (void)kj_setSelector:(SEL)selector{
-    NSString *string = [NSString stringWithFormat:@"🍉🍉 crash：%@ 类未在主线程当时刷新UI",NSStringFromClass([self class])];
-    NSString *reason = [NSStringFromSelector(selector) stringByAppendingString:@" 🚗🚗未在主线程当时刷新UI🚗🚗"];
-    NSException *exception = [NSException exceptionWithName:@"UIKit Called on Non-Main Thread" reason:reason userInfo:@{}];
-    [KJCrashManager kj_crashDealWithException:exception CrashTitle:string];
+    NSString *string = @"🍉🍉 异常标题：未在主线程当时刷新UI";
+    NSString *reason = [NSString stringWithFormat:@"*** -[%@ %@]: UIKit Called on Non-Main Thread.", NSStringFromClass([self class]), NSStringFromSelector(selector)];
+    NSException *exception = [NSException exceptionWithName:@"未在主线程当时刷新UI" reason:reason userInfo:@{}];
+    kExceptionCrashAnalysis(exception, string);
 }
 
 @end

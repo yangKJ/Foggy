@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "KJCrashManager.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSTimer (KJException)
+@interface NSTimer (KJException)<KJCrashProtocol>
 
 @end
 
