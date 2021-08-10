@@ -13,7 +13,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (KJException)<KJCrashProtocol>
+@protocol KJCrashNSObjectProtocol <KJCrashProtocol>
+
+@optional
++ (void)kj_openKVCExchangeMethod;
++ (void)kj_openUnrecognizedSelectorExchangeMethod;
+
+@end
+
+@interface NSObject (KJException) <KJCrashNSObjectProtocol>
 
 @end
 

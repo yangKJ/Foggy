@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KJCrashManager : NSObject
 /// 异常回调处理，只需要在最开始的地方调用
-extern void kExceptionCrashCallBack(void(^block)(NSDictionary *userInfo));
+extern void kExceptionCrashCallBack(void(^block)(NSDictionary * userInfo));
 /// 异常获取解析
-extern void kExceptionCrashAnalysis(NSException *exception, NSString *title);
+extern void kExceptionCrashAnalysis(NSException * exception, NSString * title);
 /// 交换实例方法
 extern void kExceptionMethodSwizzling(Class clazz, SEL original, SEL swizzled);
 /// 交换类方法
@@ -28,10 +28,9 @@ extern void kExceptionThrowOpen(BOOL open);
 @end
 
 @protocol KJCrashProtocol <NSObject>
+
 @optional
 + (void)kj_openCrashExchangeMethod;
-+ (void)kj_openKVCExchangeMethod;
-+ (void)kj_openUnrecognizedSelectorExchangeMethod;
 
 @end
 

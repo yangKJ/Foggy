@@ -9,8 +9,11 @@
 #import "KJCrashManager.h"
 
 @interface UINavigationController ()<KJCrashProtocol>
+
 @property (nonatomic, assign) BOOL repetition;
+
 @end
+
 @implementation UINavigationController (KJException)
 - (BOOL)repetition{
     return [objc_getAssociatedObject(self, _cmd) boolValue];
@@ -39,6 +42,7 @@
     }
     [self kj_pushViewController:viewController animated:animated];
 }
+
 /// 允许重复跳转push
 - (void)kj_canRepetitionPushViewController:(UIViewController*)viewController animated:(BOOL)animated{
     self.repetition = YES;

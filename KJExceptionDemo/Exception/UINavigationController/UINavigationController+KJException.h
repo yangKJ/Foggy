@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UINavigationController (KJException)
 
 /// 允许重复跳转push
-- (void)kj_canRepetitionPushViewController:(UIViewController*)viewController animated:(BOOL)animated;
+- (void)kj_canRepetitionPushViewController:(UIViewController*)viewController
+                                  animated:(BOOL)animated;
 
 @end
 

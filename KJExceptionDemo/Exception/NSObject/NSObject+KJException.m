@@ -8,6 +8,7 @@
 #import "NSObject+KJException.h"
 
 @implementation NSObject (KJException)
+
 #pragma mark - ************************ kvo ************************
 + (void)kj_openCrashExchangeMethod{
     static dispatch_once_t onceToken;

@@ -36,7 +36,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     NSString *text = [NSString stringWithFormat:@"cell - %ld",indexPath.row];;
-    if (indexPath.row % 15 == 0) {
+    if (indexPath.row > 0 && indexPath.row % 15 == 0) {
         //休眠0.5s，模拟卡顿来测试卡顿监控
         usleep(500 * 1000);
         text = @"模拟卡顿来测试卡顿监控";

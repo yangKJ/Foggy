@@ -31,7 +31,7 @@
 		7E2512DE920A237A55DA7756 /* Pods_KJExceptionDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */; };
 		C92D34122637B42C00F5E9B4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D34112637B42C00F5E9B4 /* TestViewController.m */; };
 		C92D34232637B61B00F5E9B4 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D34222637B61B00F5E9B4 /* OtherViewController.m */; };
-		C9DCED572638F64E0024BEAC /* KJRunloopCatonMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCED562638F64E0024BEAC /* KJRunloopCatonMonitor.m */; };
+		C9D855B326A961DD00B77258 /* KJExceptionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D855B226A961DD00B77258 /* KJExceptionInfo.m */; };
 		C9E582D9263671BD00C45441 /* UINavigationController+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E582D8263671BD00C45441 /* UINavigationController+KJException.m */; };
 		C9E583242636E99600C45441 /* NSUserDefaults+KJException.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E583232636E99600C45441 /* NSUserDefaults+KJException.m */; };
 		EE220845BD3C869D39D873B6 /* Pods_KJExceptionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E8D9D16C29E91090D777C5 /* Pods_KJExceptionDemo.framework */; };
@@ -104,8 +104,8 @@
 		C92D34112637B42C00F5E9B4 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		C92D34212637B61B00F5E9B4 /* OtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		C92D34222637B61B00F5E9B4 /* OtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
-		C9DCED552638F64E0024BEAC /* KJRunloopCatonMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJRunloopCatonMonitor.h; sourceTree = "<group>"; };
-		C9DCED562638F64E0024BEAC /* KJRunloopCatonMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJRunloopCatonMonitor.m; sourceTree = "<group>"; };
+		C9D855B126A961DD00B77258 /* KJExceptionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KJExceptionInfo.h; sourceTree = "<group>"; };
+		C9D855B226A961DD00B77258 /* KJExceptionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJExceptionInfo.m; sourceTree = "<group>"; };
 		C9E582D7263671BC00C45441 /* UINavigationController+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+KJException.h"; sourceTree = "<group>"; };
 		C9E582D8263671BD00C45441 /* UINavigationController+KJException.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+KJException.m"; sourceTree = "<group>"; };
 		C9E583222636E99600C45441 /* NSUserDefaults+KJException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KJException.h"; sourceTree = "<group>"; };
@@ -259,18 +259,19 @@
 		68AA5C66257732830099EB48 /* Exception */ = {
 			isa = PBXGroup;
 			children = (
-				C9DCED542638F6310024BEAC /* Runloop */,
-				C9E582D62636719700C45441 /* UINavigationController */,
-				6854A8B8259AD51B000AF944 /* NSObject */,
-				684A42F32589DDF000CA3B49 /* NSNull */,
-				68B17EBF258B661700177E4E /* NSTimer */,
-				683DDDCB2587666300718F03 /* NSString */,
-				6854A8BF259AFA53000AF944 /* UIView */,
-				683DDDCA2587665800718F03 /* Container */,
-				68AA5C6F257732830099EB48 /* KJCrashManager.h */,
-				68AA5C75257732830099EB48 /* KJCrashManager.m */,
 				683DDDC32587633A00718F03 /* KJCrashException.h */,
 				683DDDC42587633A00718F03 /* KJCrashException.m */,
+				68AA5C6F257732830099EB48 /* KJCrashManager.h */,
+				68AA5C75257732830099EB48 /* KJCrashManager.m */,
+				C9D855B126A961DD00B77258 /* KJExceptionInfo.h */,
+				C9D855B226A961DD00B77258 /* KJExceptionInfo.m */,
+				683DDDCA2587665800718F03 /* Container */,
+				684A42F32589DDF000CA3B49 /* NSNull */,
+				6854A8B8259AD51B000AF944 /* NSObject */,
+				683DDDCB2587666300718F03 /* NSString */,
+				68B17EBF258B661700177E4E /* NSTimer */,
+				C9E582D62636719700C45441 /* UINavigationController */,
+				6854A8BF259AFA53000AF944 /* UIView */,
 			);
 			path = Exception;
 			sourceTree = "<group>";
@@ -305,15 +306,6 @@
 				C044C30ED640F8CC8A9A6667 /* Pods_KJExceptionDemoTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C9DCED542638F6310024BEAC /* Runloop */ = {
-			isa = PBXGroup;
-			children = (
-				C9DCED552638F64E0024BEAC /* KJRunloopCatonMonitor.h */,
-				C9DCED562638F64E0024BEAC /* KJRunloopCatonMonitor.m */,
-			);
-			path = Runloop;
 			sourceTree = "<group>";
 		};
 		C9E582D62636719700C45441 /* UINavigationController */ = {
@@ -539,8 +531,8 @@
 				68AA5C7D257732830099EB48 /* KJCrashManager.m in Sources */,
 				68B17EC2258B662E00177E4E /* NSTimer+KJException.m in Sources */,
 				68AA5C7E257732830099EB48 /* NSDictionary+KJException.m in Sources */,
-				C9DCED572638F64E0024BEAC /* KJRunloopCatonMonitor.m in Sources */,
 				685AD6012577274D00960EE6 /* AppDelegate.m in Sources */,
+				C9D855B326A961DD00B77258 /* KJExceptionInfo.m in Sources */,
 				684A42F62589DE0900CA3B49 /* NSNull+KJException.m in Sources */,
 				685AD6042577274D00960EE6 /* SceneDelegate.m in Sources */,
 				C92D34122637B42C00F5E9B4 /* TestViewController.m in Sources */,

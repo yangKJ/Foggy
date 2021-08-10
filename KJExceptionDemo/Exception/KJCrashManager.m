@@ -9,7 +9,7 @@
 
 @implementation KJCrashManager
 /// 异常回调处理
-static void (^_exceptionblock)(NSDictionary *userInfo) = nil;
+static void (^_exceptionblock)(NSDictionary * userInfo) = nil;
 void kExceptionCrashCallBack(void(^block)(NSDictionary *userInfo)){
     _exceptionblock = block;
 }
@@ -24,10 +24,11 @@ void kExceptionCrashAnalysis(NSException *exception, NSString *title){
     NSString *selector = [KJCrashManager kj_analysisCallStackSymbols:stacks];
     if (selector == nil) selector = @"The crash method failed to locate, Check the function call stack to find the cause of the error";
     if (_exceptionblock) {
-        NSDictionary *dict = @{@"title":title,
-                               @"selector":selector,
-                               @"exception":exception,
-                               @"stacks":stacks
+        NSDictionary *dict = @{
+            @"title":title,
+            @"selector":selector,
+            @"exception":exception,
+            @"stacks":stacks
         };
         _exceptionblock(dict);
     }
@@ -41,7 +42,7 @@ void kExceptionCrashAnalysis(NSException *exception, NSString *title){
 #endif
 }
 /// 解析异常消息
-+ (NSString*)kj_analysisCallStackSymbols:(NSArray<NSString*>*)callStackSymbols{
++ (NSString *)kj_analysisCallStackSymbols:(NSArray<NSString *> *)callStackSymbols{
     __block NSString *msg = nil;
     NSString *pattern = @"[-\\+]\\[.+\\]";// 匹配出来的格式为 +[类名 方法名] 或者 -[类名 方法名]
     NSRegularExpression *regularExp = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
@@ -87,4 +88,4 @@ void kExceptionClassMethodSwizzling(Class clazz, SEL original, SEL swizzled){
 }
 
 @end
- 
+

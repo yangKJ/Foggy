@@ -6,6 +6,7 @@
 //  https://github.com/yangKJ/KJExceptionDemo
 
 #import "KJCrashException.h"
+
 #import "NSArray+KJException.h"
 #import "NSDictionary+KJException.h"
 #import "NSString+KJException.h"
@@ -15,19 +16,15 @@
 #import "NSObject+KJException.h"
 #import "UINavigationController+KJException.h"
 #import "NSUserDefaults+KJException.h"
-#import "KJRunloopCatonMonitor.h"
 
 @implementation KJCrashException
+@dynamic openThrow;
 static BOOL __open = YES;
-static NSUInteger __continuous = 5;
-@dynamic openThrow,continuousNumber;
 + (void)setOpenThrow:(BOOL)openThrow{
     __open = openThrow;
     kExceptionThrowOpen(__open);
 }
-+ (void)setContinuousNumber:(NSUInteger)continuousNumber{
-    __continuous = continuousNumber;
-}
+
 /// 开启指定类型防护
 + (void)kj_openCrashProtectorType:(KJCrashProtectorType)type exception:(void(^)(KJExceptionInfo *userInfo))exception{
     kExceptionThrowOpen(__open);
@@ -44,11 +41,6 @@ static NSUInteger __continuous = 5;
     if (type & KJCrashProtectorTypeSignal) {
         kSetSignalCrashException();
     }
-    if (type & KJCrashProtectorTypeRunloopCatonMonitor) {
-#ifdef DEBUG
-        KJRunloopCatonMonitor *monitor = [[KJRunloopCatonMonitor alloc] initOpenRunloopCatonMonitorWithContinuousNumber:__continuous];
-#endif
-    }
     if (type & KJCrashProtectorTypeContainer) {
         [NSArray kj_openCrashExchangeMethod];
         [NSMutableArray kj_openCrashExchangeMethod];
@@ -64,9 +56,6 @@ static NSUInteger __continuous = 5;
         [NSAttributedString kj_openCrashExchangeMethod];
         [NSMutableAttributedString kj_openCrashExchangeMethod];
     }
-    if (type & KJCrashProtectorTypeUnrecognizedSelector) {
-        [NSObject kj_openUnrecognizedSelectorExchangeMethod];
-    }
     if (type & KJCrashProtectorTypeNSNull) {
         [NSNull kj_openCrashExchangeMethod];
     }
@@ -76,14 +65,17 @@ static NSUInteger __continuous = 5;
     if (type & KJCrashProtectorTypeKVO) {
         [NSObject kj_openCrashExchangeMethod];
     }
+    if (type & KJCrashProtectorTypeKVC) {
+        [NSObject kj_openKVCExchangeMethod];
+    }
+    if (type & KJCrashProtectorTypeUnrecognizedSelector) {
+        [NSObject kj_openUnrecognizedSelectorExchangeMethod];
+    }
     if (type & KJCrashProtectorTypeUINonMain) {
         [UIView kj_openCrashExchangeMethod];
     }
     if (type & KJCrashProtectorTypeNavigation) {
         [UINavigationController kj_openCrashExchangeMethod];
-    }
-    if (type & KJCrashProtectorTypeKVC) {
-        [NSObject kj_openKVCExchangeMethod];
     }
 }
 NS_INLINE void kSetSignalCrashException(void){
@@ -153,9 +145,5 @@ NS_INLINE void kOtherCrashException(NSException *exception) {
     NSString *string = @"🍉🍉 异常：其他三方注册的异常处理";
     kExceptionCrashAnalysis(exception, string);
 }
-
-@end
-
-@implementation KJExceptionInfo
 
 @end

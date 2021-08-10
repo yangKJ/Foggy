@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (KJException)
+@interface UIView (KJException)<KJCrashProtocol>
 
 @end
 
